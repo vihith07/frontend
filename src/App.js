@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Form from "./components/Form";
+import Welcome from "./components/Welcome";
+import Thankyou from "./components/Thankyou";
+import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      
+      <Routes>
+        <Route exact path='/' element={<Welcome/>}></Route>
+        <Route exact path='/form' element={<div className="h-screen">
+        <Form name="Android Developer" />
+      </div>}></Route>
+      <Route exact path='/end' element={<Thankyou/>}></Route>
+      </Routes>
+    </Router>
+
+    
   );
 }
 
